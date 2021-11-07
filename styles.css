@@ -1,0 +1,297 @@
+@import url("https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap");
+
+:root {
+	--body: hsl(222, 26%, 31%);
+	--text-color: hsl(0, 0%, 100%);
+	--toggle-keypad-background: hsl(223, 31%, 20%);
+	--toggle: hsl(6, 63%, 50%);
+	--screen-background: hsl(224, 36%, 15%);
+	--key-background: hsl(30, 25%, 89%);
+	--button-text-color: hsl(221, 14%, 31%);
+	--key-shadow: hsl(28, 16%, 65%);
+	--reset-key: hsl(225, 21%, 49%);
+	--reset-key-shadow: hsl(224, 28%, 35%);
+	--reset-key-text: hsl(0, 0%, 100%);
+	--submit-key-shadow: hsl(6, 70%, 34%);
+	--submit-key-background: hsl(6, 63%, 50%);
+	--submit-key-text: hsl(0, 0%, 100%);
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Spartan", sans-serif;
+}
+
+html,
+body {
+	width: 100vw;
+	height: 100vh;
+}
+
+body {
+	display: flex;
+	position: relative;
+	flex-flow: column;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--body);
+	color: var(--text-color);
+	transition: background-color 1s cubic-bezier(0.93, 0.08, 0.44, 0.68),
+		color 1s cubic-bezier(0.93, 0.08, 0.44, 0.68);
+}
+
+main {
+	width: 80%;
+	position: relative;
+}
+
+.header {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	align-items: center;
+}
+
+.app-name {
+	grid-column: 1 / 4;
+	font-size: 1.5rem;
+}
+
+.keys {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 0.75rem;
+}
+
+button[type="reset"] {
+	grid-column: 1 / 3;
+}
+
+button[type="submit"] {
+	grid-column: 3 / -1;
+	box-shadow: 0 0.25rem var(--submit-key-shadow);
+	background-color: var(--submit-key-background);
+	color: var(--submit-key-text);
+	transition: all 1s cubic-bezier(0.93, 0.08, 0.44, 0.68);
+}
+
+button {
+	color: var(--button-text-color);
+	font-size: 1.125rem;
+	transition: color 1s cubic-bezier(0.93, 0.08, 0.44, 0.68);
+}
+section {
+	margin-bottom: 1rem;
+	border-radius: 0.5rem;
+}
+
+.display {
+	position: relative;
+	background-color: var(--screen-background);
+	height: 4rem;
+	padding: 0.5rem 1rem;
+	display: grid;
+	justify-content: end;
+	align-items: center;
+	transition: background-color 1s cubic-bezier(0.93, 0.08, 0.44, 0.68);
+}
+
+.display-text {
+	font-size: 2rem;
+	text-align: end;
+	width: 100%;
+	background: none;
+	border: none;
+	color: var(--text-color);
+	transition: color 1s cubic-bezier(0.93, 0.08, 0.44, 0.68);
+}
+
+.display-text:focus-visible {
+	outline: none;
+}
+
+.keys {
+	background-color: var(--toggle-keypad-background);
+	padding: 1.25rem 0.75rem;
+	transition: background-color 1s cubic-bezier(0.93, 0.08, 0.44, 0.68);
+}
+
+.key {
+	padding: 0.75rem 0.75rem;
+	background-color: var(--key-background);
+	border: 0;
+	border-radius: 0.25rem;
+	box-shadow: 0px 0.25rem var(--key-shadow);
+	transition: background-color 1s cubic-bezier(0.93, 0.08, 0.44, 0.68),
+		box-shadow 1s cubic-bezier(0.93, 0.08, 0.44, 0.68);
+}
+
+.delete-key,
+button[type="reset"] {
+	background-color: var(--reset-key);
+	box-shadow: 0 0.25rem var(--reset-key-shadow);
+	color: var(--reset-key-text);
+	transition: color 1s cubic-bezier(0.93, 0.08, 0.44, 0.68),
+		box-shadow 1s cubic-bezier(0.93, 0.08, 0.44, 0.68),
+		background-color 1s cubic-bezier(0.93, 0.08, 0.44, 0.68);
+}
+
+.theme-picker {
+	display: flex;
+	align-items: flex-end;
+}
+
+#color-scheme-switch * {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	color: var(--text-color);
+	transition: color 1s cubic-bezier(0.93, 0.08, 0.44, 0.68);
+
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+	transition: color 1s cubic-bezier(0.93, 0.08, 0.44, 0.68);
+}
+
+#color-scheme-switch {
+	position: relative;
+}
+
+#color-scheme-switch .slider {
+	display: block;
+	position: relative;
+	width: 4rem;
+	height: 1.25rem;
+	background-color: var(--toggle-keypad-background);
+	border-radius: 99vw;
+	transition: background-color 1s cubic-bezier(0.93, 0.08, 0.44, 0.68);
+}
+
+#color-scheme-switch .slider::before {
+	content: "";
+	position: absolute;
+	width: 1rem;
+	height: 1rem;
+	background-color: var(--toggle);
+	top: 2px;
+	left: 1px;
+	border-radius: 50%;
+	z-index: 9999;
+	transition: background-color 1s cubic-bezier(0.93, 0.08, 0.44, 0.68),
+		transform 1s cubic-bezier(0.93, 0.08, 0.44, 0.68);
+}
+
+#color-scheme-switch label::before {
+	opacity: 0;
+	content: "";
+	position: absolute;
+	width: 1rem;
+	height: 1rem;
+	border-radius: 50%;
+	z-index: 999;
+}
+
+#color-scheme-switch label[for="light"]::before {
+	top: 21px;
+	left: 0;
+}
+
+#color-scheme-switch label[for="dark"]::before {
+	top: 21px;
+	left: 0;
+}
+
+#color-scheme-switch label[for="solarize"]::before {
+	top: 21px;
+	left: 0;
+}
+
+#color-scheme-switch label {
+	position: absolute;
+	width: 1rem;
+	height: 1rem;
+	text-align: center;
+}
+
+#color-scheme-switch label[for="dark"] {
+	top: 0;
+	left: 0;
+}
+
+#color-scheme-switch label[for="light"] {
+	top: 0;
+	left: 25px;
+}
+
+#color-scheme-switch label[for="solarize"] {
+	top: 0;
+	left: 48px;
+}
+
+#color-scheme-switch #dark:checked ~ .slider::before {
+	transform: translateX(0);
+}
+
+#color-scheme-switch #light:checked ~ .slider::before {
+	transform: translateX(25px);
+}
+
+#color-scheme-switch #solarize:checked ~ .slider::before {
+	transform: translateX(45px);
+}
+
+#color-scheme-switch #dark,
+#color-scheme-switch #solarize {
+	margin-left: 7px;
+}
+
+#color-scheme-switch input[type="radio"] {
+	visibility: hidden;
+}
+
+.theme-picker > span:nth-child(1) {
+	font-size: x-small;
+	margin-right: 1rem;
+}
+
+label[for="display-text"] {
+	display: none;
+}
+
+@media (prefers-color-scheme: light) {
+	:root {
+		--body: hsl(0, 0%, 90%);
+		--text-color: hsl(60, 10%, 19%);
+		--toggle-keypad-background: hsl(0, 5%, 81%);
+		--toggle: hsl(25, 98%, 40%);
+		--screen-background: hsl(0, 0%, 93%);
+		--key-background: hsl(45, 7%, 89%);
+		--button-text-color: hsl(60, 10%, 19%);
+		--key-shadow: hsl(35, 11%, 61%);
+		--reset-key: hsl(185, 42%, 37%);
+		--reset-key-shadow: hsl(185, 58%, 25%);
+		--reset-key-text: hsl(0, 0%, 100%);
+		--submit-key-shadow: hsl(6, 70%, 34%);
+		--submit-key-background: hsl(25, 99%, 27%);
+		--submit-key-text: hsl(0, 0%, 100%);
+	}
+}
+
+@media (min-width: 768px) {
+	main {
+		width: 40%;
+	}
+}
+
+@media (min-width: 10px) {
+	main {
+		width: 30%;
+	}
+}
+
+@media (min-width: 1280px) {
+	main {
+		width: 25%;
+	}
+}

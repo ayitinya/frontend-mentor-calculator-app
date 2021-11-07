@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- displays site properly based on user's device -->
+
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="./images/favicon-32x32.png"
+		/>
+		<link rel="stylesheet" href="styles.css" />
+
+		<title>Frontend Mentor | Calculator app</title>
+
+		<!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+		<style>
+			.attribution {
+				font-size: 11px;
+				text-align: center;
+			}
+			.attribution a {
+				color: hsl(228, 45%, 44%);
+			}
+		</style>
+	</head>
+	<body>
+
+    <main>
+
+<section class="header">
+      <div class="app-name">
+        <span>calc</span>
+      </div>
+      <div class="theme-picker">
+        <span>THEME</span>
+        <div id="color-scheme-switch">
+			<input type="radio" name="color-scheme" id="dark" checked />
+			<label for="dark">1</label>
+
+			<input type="radio" name="color-scheme" id="light" />
+			<label for="light">2</label>
+
+			<input type="radio" name="color-scheme" id="solarize" />
+			<label for="solarize">3</label>
+
+			<span class="slider"></span>
+		</div>
+      </div>
+      
+    </section>
+
+    <section class="display">
+      <label for="display-text">Calculator screen</label>
+      <input type="text" class="display-text" id="display-text" value="" disabled>
+    </section>
+
+    <section class="keys">
+      <button type="button" value="7" class="key number-btn"><span>7</span></button>
+      <button type="button" value="8" class="key number-btn"><span>8</span></button>
+      <button type="button" value="9" class="key number-btn"><span>9</span></button>
+      <button type="button" class="key delete-key">DEL</span></button>
+      <button type="button" value="4" class="key number-btn"><span>4</span></button>
+      <button type="button" value="5" class="key number-btn"><span>5</span></button>
+      <button type="button" value="6" class="key number-btn"><span>6</span></button>
+      <button type="button" value="+" class="key operand-btn"><span>+</span></button>
+      <button type="button" value="1" class="key number-btn"><span>1</span></button>
+      <button type="button" value="2" class="key number-btn"><span>2</span></button>
+      <button type="button" value="3" class="key number-btn"><span>3</span></button>
+      <button type="button" value="-" class="key operand-btn"><span>-</span></button>
+      <button type="button" class="key dot-btn"><span>.</span></button>
+      <button type="button" value="0" class="key number-btn"><span>0</span></button>
+      <button type="button" value="/" class="key operand-btn"><span>/</span></button>
+      <button type="button" value="*" class="key operand-btn"><span>*</span></button>
+      <button type="reset" class="key"><span>RESET</span></button>
+      <button type="submit" class="key"><span>=</span></button>
+    </section>
+    </main>
+
+    
+		<!-- <div class="attribution">
+			Challenge by
+			<a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+				>Frontend Mentor</a
+			>. Coded by <a href="#">Your Name Here</a>. -->
+		</div>
+
+    <script src="script.js"></script>
+	</body>
+</html>
